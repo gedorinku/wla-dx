@@ -579,12 +579,16 @@ void write_snes_cartridge_information(int start) {
   int info_bits;
 
   info_bits = 32;
+  /* FIXME: ハードコードしない */
+  info_bits |= 3; /* SA-1 mapping */
+  /*
   if (g_hirom_defined != 0)
     info_bits |= 1;
   else if (g_exhirom_defined != 0)
     info_bits |= (1 << 2) | 1;
   else if (g_exlorom_defined != 0)
     info_bits |= (1 << 1);
+  */
 
   if (g_fastrom_defined != 0)
     info_bits += 16;
